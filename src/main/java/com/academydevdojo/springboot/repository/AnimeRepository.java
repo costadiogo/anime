@@ -1,0 +1,11 @@
+package com.academydevdojo.springboot.repository;
+
+import com.academydevdojo.springboot.domain.Anime;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+public interface AnimeRepository extends JpaRepository<Anime, Integer> {
+
+    List<Anime> findByName(String name);
+}

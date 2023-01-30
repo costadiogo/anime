@@ -1,0 +1,43 @@
+server:
+  error:
+    include-stacktrace: always
+    include-message: always
+    include-binding-errors: always
+
+
+spring:
+  application:
+    name: springboot-anime
+  datasource:
+    url: jdbc:mysql://localhost:3306/anime?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+       format_sql: true
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, prometheus
+
+info:
+  app: Spring Boot Project
+  github: https://github.com/costadiogo
